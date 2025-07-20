@@ -16,6 +16,11 @@ dependencies {
     implementation 'ch.qos.logback:logback-classic:1.5.18'
 
     implementation 'io.appium:java-client:8.3.0'
+
+    compileOnly 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+    testCompileOnly 'org.projectlombok:lombok:1.18.28'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
 }
 
 test {

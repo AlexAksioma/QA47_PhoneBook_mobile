@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public abstract class BaseScreen {
-    private static AppiumDriver driver;
+    protected static AppiumDriver driver;
     public BaseScreen(AppiumDriver driver){
         this.driver = driver;
         PageFactory.initElements(

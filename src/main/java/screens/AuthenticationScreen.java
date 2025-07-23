@@ -19,9 +19,15 @@ public class AuthenticationScreen extends BaseScreen {
     @FindBy(id = "com.sheygam.contactapp:id/loginBtn")
     WebElement btnLogin;
 
+
     public void typeRegistrationForm(User user){
         inputEmail.sendKeys(user.getUsername());
         inputPassword.sendKeys(user.getPassword());
         btnRegistration.click();
+    }
+    public void typeLoginForm(User user){
+        inputEmail.sendKeys(user.getUsername());
+        inputPassword.sendKeys(user.getPassword());
+        btnLogin.click();
     }
 }

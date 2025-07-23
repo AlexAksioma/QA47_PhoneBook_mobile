@@ -1,6 +1,7 @@
 package ui_mobile;
 
 import config.AppiumConfig;
+import dto.User;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -15,6 +16,11 @@ public class RegistrationTests extends AppiumConfig {
 
     AuthenticationScreen authenticationScreen;
 
+    User qa_user = User.builder()
+            .username("qa_user_qwerty@mail.com")
+            .password("Password123!")
+            .build();
+
     @BeforeMethod
     public void goToAuthScreen(){
         new SplashScreen(driver);
@@ -24,7 +30,7 @@ public class RegistrationTests extends AppiumConfig {
     @Test
     public void registrationPositiveTest(){
         authenticationScreen = new AuthenticationScreen(driver);
-        authenticationScreen.typeRegistrationForm(createUser());
+        authenticationScreen.typeRegistrationForm(qa_user);
         Assert.assertTrue(new ContactsScreen(driver)
                 .validateContactsScreenOpen("Contact list"));
     }

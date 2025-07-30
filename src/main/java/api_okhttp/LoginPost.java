@@ -10,13 +10,14 @@ import utils.BaseAPI;
 import java.io.IOException;
 
 public class LoginPost implements BaseAPI {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         User qa_user = User.builder()
                 .username("qa_user_qwerty@mail.com")
                 .password("Password123!")
                 .build();
         Response response = login(qa_user);
         System.out.println(response.isSuccessful());
+        System.out.println(response.body().string());
     }
 
     public static Response login(User user){

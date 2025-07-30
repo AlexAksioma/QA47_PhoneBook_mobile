@@ -21,7 +21,7 @@ public class GetAllUserContacts implements BaseAPI {
         Response response = login(qa_user);
         if (response.isSuccessful()) {
             TokenDto token = GSON.fromJson(response.body().string(), TokenDto.class);
-            //response.close();  ??????
+            response.close();  //??????
             System.out.println(token.getToken());
             Response response1 = getAllUserContacts(token);
             if (response1.isSuccessful()) {

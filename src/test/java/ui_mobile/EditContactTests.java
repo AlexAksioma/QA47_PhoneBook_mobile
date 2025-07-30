@@ -1,13 +1,21 @@
 package ui_mobile;
 
 import config.AppiumConfig;
+import dto.Contact;
+import dto.ContactsDto;
 import dto.User;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import screens.AuthenticationScreen;
 import screens.ContactsScreen;
 import screens.SplashScreen;
+
+import java.util.Arrays;
+
 import static utils.ContactFactory.*;
+import static utils.GetAllUserContactsApi.*;
+
 public class EditContactTests extends AppiumConfig {
     ContactsScreen contactsScreen;
 
@@ -22,10 +30,20 @@ public class EditContactTests extends AppiumConfig {
                 .typeLoginForm(qa_user);
         contactsScreen = new ContactsScreen(driver);
     }
+
     @Test
     public void editContactPositiveTest(){
+        Contact contact = createPositiveContact();
         contactsScreen.swipeLeftToRight()
-                .editContact(createPositiveContact())
+                .editContact(contact)
         ;
+        ContactsDto contactsDto = getAllUserContactsApi(qa_user);
+        boolean flag = false;
+        for (Contact contact1 : contactsDto.getContacts()){
+            if(contact1.equals(contact)){
+                flag=true;
+            }
+        }
+        Assert.assertTrue(flag);
     }
 }

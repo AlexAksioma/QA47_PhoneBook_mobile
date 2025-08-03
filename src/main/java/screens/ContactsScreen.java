@@ -3,6 +3,7 @@ package screens;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.support.FindBy;
 import org.testng.annotations.Test;
 
@@ -50,6 +51,8 @@ public class ContactsScreen extends BaseScreen{
                 flag = false;
         }
     }
+
+
 
     public void clickToLastContact(){
         listContact.get(listContact.size()-1).click();

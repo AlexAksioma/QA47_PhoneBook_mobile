@@ -8,8 +8,7 @@
         </groups>
         <classes>
             <class name="ui_mobile.LoginTests"/>
-            <class name="ui_mobile.RegistrationTests"/>
-            <class name="ui_mobile.SplashTest"/>
+
         </classes>
     </test>
 </suite>

@@ -3,6 +3,7 @@ package ui_mobile;
 import config.AppiumConfig;
 import dto.User;
 import io.appium.java_client.AppiumDriver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import screens.*;
@@ -25,8 +26,11 @@ public class DatePickerTests extends AppiumConfig {
     @Test
     public void datePickerPositiveTest(){
         contactsScreen.clickBtnMoreOptions();
-        contactsScreen.clickBtnDatePicker()
-                .clickBtnChangeDate();
+        Assert.assertTrue(contactsScreen.clickBtnDatePicker()
+                .clickBtnChangeDate()
+                .typeDate("10 December 2026")
+                .validateDate("10 December 2026"))
         ;
+
     }
 }

@@ -21,13 +21,13 @@ public class RegistrationTests extends AppiumConfig {
             .password("Password123!")
             .build();
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void goToAuthScreen(){
         new SplashScreen(driver);
 
     }
 
-    @Test
+    @Test(groups = "smoke")
     public void registrationPositiveTest(){
         authenticationScreen = new AuthenticationScreen(driver);
         authenticationScreen.typeRegistrationForm(qa_user);

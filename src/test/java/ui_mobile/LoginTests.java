@@ -13,13 +13,13 @@ public class LoginTests extends AppiumConfig {
 
     AuthenticationScreen authenticationScreen;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void goToAuthScreen() {
         new SplashScreen(driver);
         authenticationScreen = new AuthenticationScreen(driver);
     }
 
-    @Test
+    @Test(groups = "smoke")
     public void loginPositiveTest() {
         authenticationScreen.typeLoginForm(User.builder()
                 .username("qa_mail@mail.com")

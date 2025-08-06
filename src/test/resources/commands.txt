@@ -1,0 +1,1 @@
+./gradlew clean -Pdevice=pixel3 smoke_tests
